@@ -1,6 +1,6 @@
-#ZFS
+# ZFS
 
-##Описание домашнего задания
+## Описание домашнего задания
 1. Определить алгоритм с наилучшим сжатием
 Определить какие алгоритмы сжатия поддерживает zfs (gzip, zle, lzjb, lz4);
 Создать 4 файловых системы на каждой применить свой алгоритм сжатия;
@@ -18,7 +18,7 @@
 восстановить файл локально. zfs receive
 найти зашифрованное сообщение в файле secret_message
 
-##0. Подготовка виртуальной машины
+## 0. Подготовка виртуальной машины
 Тк у Centos7 проблемы с монтированием папок (требуется обновление ядра - https://www.puppeteers.net/blog/fixing-vagrant-vbguest-for-the-centos-7-base-box/), то при `vagrant up` выходит ошибка монтирования. Поэтому для подготовки стенда используется затем команда `vagrant provision` для запуска скрипта.
 ```
 vagrant up
@@ -27,7 +27,7 @@ vagrant ssh
 sudo -i
 ```
 
-##1. Определить алгоритм с наилучшим сжатием
+## 1. Определить алгоритм с наилучшим сжатием
 Смотрим список всех дисков, которые есть в виртуальной машине:
 ```bash
 [root@localhost ~]# lsblk
@@ -153,7 +153,7 @@ otus4  compressratio         1.00x                  -
 Получается, что алгоритм gzip-9 самый эффективный по сжатию. 
 
 
-##2.Определение настроек пула
+## 2.Определение настроек пула
 Скачиваем архив в домашний каталог и разархивируем его:
 ```bash
 [root@localhost ~]# wget -O archive.tar.gz --no-check-certificate https://drive.google.com/u/0/uc?id=1KRBNW33QWqbvbVHa3hLJivOAt60yukkg&export=download
@@ -234,7 +234,7 @@ NAME  PROPERTY  VALUE      SOURCE
 otus  checksum  sha256     local
 ```
 
-##3.Работа со снапшотами
+## 3.Работа со снапшотами
 Скачаем файл:
 ```bash
 [root@localhost ~]# wget -O otus_task2.file --no-check-certificate https://drive.google.com/u/0/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download
